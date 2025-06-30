@@ -12,7 +12,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
-import { OrganizacionService } from 'app/services/admin/organizacion.service';
 import { UsuarioService } from 'app/services/admin/usuario.service';
 
 @Component({
@@ -47,7 +46,6 @@ export class UsuarioFormComponent implements OnInit {
   constructor(
     private snackBar: FuseConfirmationService,
     private usuarioService: UsuarioService,
-    private organizacionService: OrganizacionService,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<UsuarioFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -67,16 +65,7 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.organizacionService.GetAll().subscribe({
-      next: (response) => {
-        console.log(response);
-        this.organizaciones = response;
-      },
-      error: (err) => {
-        console.error(err);
-        this.form.enable();
-      }
-    });
+     this.organizaciones = [];
   }
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -98,7 +87,7 @@ export class UsuarioFormComponent implements OnInit {
       // Validar confirmación de contraseña
       if (nuevoUsuario.password !== nuevoUsuario.confirmPassword) {
         this.snackBar.open({
-            title: 'Fix360',
+            title: 'Almacen',
             message: 'Las contraseñas no coinciden.',
             icon: {
               show: true,
@@ -144,7 +133,7 @@ export class UsuarioFormComponent implements OnInit {
         error: (err) => {
           console.error(err);
           this.snackBar.open({
-            title: 'Fix360',
+            title: 'Almacen',
             message: 'Ha ocurrido un error al procesar la solicitud.',
             icon: {
               show: true,

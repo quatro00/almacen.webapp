@@ -87,14 +87,9 @@ export const appRoutes: Route[] = [
         },
         children: [
             { path: 'home', loadChildren: () => import('app/modules/admin/home/home.route') },
-            { path: 'organizaciones', loadChildren: () => import('app/modules/admin/organizaciones/organizaciones.route') },
-            { path: 'areas', loadChildren: () => import('app/modules/admin/areas/areas.route') },
             { path: 'usuarios', loadChildren: () => import('app/modules/admin/usuarios/usuarios.route') },
-            { path: 'subareas', loadChildren: () => import('app/modules/admin/subareas/subareas.route') },
-            { path: 'nuevo-ticket', loadChildren: () => import('app/modules/admin/nuevo-ticket/nuevo-ticket.route') },
-            { path: 'tickets-abiertos', loadChildren: () => import('app/modules/admin/tickets/tickets.route') },
-            { path: 'ticket-detalle/:id', loadChildren: () => import('app/modules/admin/ticket-detalle/ticket-detalle.route') },
-            { path: 'equipos-de-trabajo', loadChildren: () => import('app/modules/admin/equipos-de-trabajo/equipos-de-trabajo.route') },
+          
+            
         ]
     },
 
