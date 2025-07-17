@@ -4,6 +4,8 @@ import { AuthGuard } from 'app/core/auth/guards/auth.guard';
 import { NoAuthGuard } from 'app/core/auth/guards/noAuth.guard';
 import { LayoutComponent } from 'app/layout/layout.component';
 
+import adminRoutes from 'app/modules/admin/admin.route';
+
 // @formatter:off
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
@@ -85,12 +87,15 @@ export const appRoutes: Route[] = [
         resolve: {
             initialData: initialDataResolver
         },
+        children: adminRoutes
+        /*
         children: [
             { path: 'home', loadChildren: () => import('app/modules/admin/home/home.route') },
             { path: 'usuarios', loadChildren: () => import('app/modules/admin/usuarios/usuarios.route') },
             { path: 'configuracion', loadChildren: () => import('app/modules/admin/configuracion/configuracion.route') },
             
         ]
+        */
     },
 
 ];

@@ -18,6 +18,13 @@ export const defaultNavigation_admin: FuseNavigationItem[] = [
         link : '/admin/usuarios'
     },
     {
+        id   : 'organizacion',
+        title: 'Organizaciones',
+        type : 'basic',
+        icon : 'heroicons_outline:cog-6-tooth',
+        link : '/admin/organizacion'
+    },
+    {
         id   : 'configuracion',
         title: 'Configuracion',
         type : 'basic',
